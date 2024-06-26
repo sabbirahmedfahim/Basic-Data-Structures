@@ -2,19 +2,40 @@
 using namespace std;
 
 int main()
-{
+{vv
     int n;
     cin >> n;
-    int count = 0;
+    int arr[10];
 
-    for (int i = 0; i < n; i++)
+    while (true)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        if (a + b + c >= 2)
-            count++;
+        n++;
+        int my_n = n;
+        int i = 0;
+        bool flag = true;
+        while (n != 0)
+        {
+            arr[i] = n % 10;
+            n /= 10;
+            i++;
+        }
+        int arr_size = i;
+        sort(arr, arr + arr_size);
+        for (int j = 0; j < arr_size - 1; j++)
+        {
+            if (arr[j] == arr[j + 1])
+            {
+                flag = false;
+                break;
+            }
+        }
+        n = my_n;
+        if (flag)
+        {
+            cout << my_n;
+            break;
+        }
     }
-    cout<<count;
 
     return 0;
 }
