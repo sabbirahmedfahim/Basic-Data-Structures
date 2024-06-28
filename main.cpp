@@ -1,24 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Node
+void updateValue(int * a)
 {
-    public:
-    int val;
-    Node * next;
-    Node(int val)
-    {
-        (*this).val = val;
-        this->next = NULL;
-    }
-};
+    a = NULL; 
+}  
 
 int main()
 {
-    // Node * head = new Node; //we hafta initialize node with value
-    Node * head = new Node(10); //remember, head is a Pointer Variable
-    Node * random_node = new Node(12);
+    int a = 10;
 
-    
+    int * ptr = &a;
+    updateValue(ptr);
 
+    cout << a << " " << endl;
+    cout << ptr << " " << endl; 
+    cout << *ptr << " " << endl; 
+   
     return 0;
 }
