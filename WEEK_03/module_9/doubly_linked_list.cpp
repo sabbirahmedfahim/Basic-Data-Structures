@@ -13,19 +13,6 @@ public:
         this->next = NULL;
     }
 };
-void insert_tail(Node *&head, Node *&tail, int val)
-{
-    Node *newNode = new Node(val);
-    if (tail == NULL)
-    {
-        newNode = head;
-        newNode = tail;
-        return;
-    }
-    tail->next = newNode;
-    newNode->prev = tail;
-    tail = newNode;
-}
 void print_normal(Node *head)
 {
     Node *temp = head;
@@ -36,29 +23,37 @@ void print_normal(Node *head)
     }
     cout << endl;
 }
-void print_reverse(Node *tail)
+void print_reverse(Node * tail)
 {
-    Node *temp = tail;
+    Node * temp = tail;
     while (temp != NULL)
     {
-        cout << temp->val << " ";
+        cout<< temp->val << " ";
         temp = temp->prev;
     }
-    cout << endl;
+    cout<<endl;
 }
 
 int main()
 {
-    Node *head = NULL;
-    Node *tail = NULL;
+    Node * head = new Node(10);
+    Node * a = new Node(20);
+    Node * b = new Node(30);
+    // Node * tail = new Node(NULL);
+    Node * tail  = b;
 
-    int val;
-    cin >> val;
-    insert_tail(head, tail, val);
+    // connection
+    head->next = a;
+    a->prev = head;
+    a->next = b;
+    b->prev = a; 
+    // b->next = tail;
 
     print_normal(head);
     print_reverse(tail);
-    cout << endl;
+    
+    cout<< head->val << endl;
+    cout<< tail->val << endl ;
 
     return 0;
 }
