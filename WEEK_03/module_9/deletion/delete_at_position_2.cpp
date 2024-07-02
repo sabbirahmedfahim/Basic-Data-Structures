@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Node
-{ // this is the final file for deletion
+{ // this code has an issue with head, tail
 public:
     int val;
     Node *next;
@@ -25,7 +25,7 @@ int List_Size(Node *head) // O(n)
     return count;
 }
 void print_normal(Node *head) // O(n)
-{ 
+{
     Node *temp = head;
     while (temp != NULL)
     {
@@ -44,29 +44,29 @@ void print_reverse(Node *tail) // O(n)
     }
     cout << endl;
 }
-void delete_at_position(Node* head, int pos) // O(n)
+void delete_at_position(Node *head, int pos) // O(n)
 {
-    Node * temp = head;
-    for (int i = 1; i <= pos-1; i++)
+    Node *temp = head;
+    for (int i = 1; i <= pos - 1; i++)
     {
         temp = temp->next;
     }
-    Node * deleteNode = temp->next;
+    Node *deleteNode = temp->next;
     temp->next = temp->next->next;
     temp->next->prev = temp;
     delete deleteNode;
 }
-void delete_head(Node* &head) // O(1)
-{ 
-    Node * deleteNode = head;
-    head = head->next;
-    head->prev = NULL;
-    delete deleteNode;
-}
-void delete_tail(Node* &tail) // O(1)
+void delete_head(Node *&head) // O(1)
 {
-    Node * deleteNode = tail;
-    tail = tail->prev; 
+    Node *deleteNode = head;
+    head = head->next;
+    delete deleteNode;
+    head->prev = NULL;  
+}
+void delete_tail(Node *&tail) // O(1)
+{
+    Node *deleteNode = tail;
+    tail = tail->prev;
     tail->next = NULL;
     delete deleteNode;
 }
@@ -74,30 +74,19 @@ void delete_tail(Node* &tail) // O(1)
 int main()
 {
     Node *head = new Node(10);
-    Node *a = new Node(20);
-    Node *b = new Node(30);
-    Node *c = new Node(40);
-    Node *tail = c;
+    Node *tail = NULL;
 
-    // connection
-    head->next = a;
-    a->prev = head;
-    a->next = b;
-    b->prev = a;
-    b->next = c;
-    c->prev = b;
-    
     int pos;
-    cin>> pos;
-    if (pos >= List_Size(head)) // this condition also deals with Null head
+    cin >> pos; // input 0 to detect the error
+    if (pos >= List_Size(head)) 
     {
-        cout<< "Invalid Index" << endl;
+        cout << "Invalid Index" << endl;
     }
     else if (pos == 0)
     {
         delete_head(head);
     }
-    else if (pos == List_Size(head)-1)
+    else if (pos == List_Size(head) - 1)
     {
         delete_tail(tail);
     }
