@@ -26,7 +26,6 @@ void print_reverse(Node *n)
     // base case
     if (n == NULL)
         return;
-
     print_reverse(n->next);
     cout << n->val << " ";
 }
