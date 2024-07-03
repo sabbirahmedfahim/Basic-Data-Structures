@@ -23,7 +23,7 @@ void print_recursion(Node *n)
 }
 void print_reverse(Node *n)
 {
-    // base case
+    // base case  
     if (n == NULL)
         return;
     print_reverse(n->next);
