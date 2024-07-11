@@ -31,12 +31,12 @@ int main()
     }
     else
     {
-        bool flag = false;
+        bool flag = true;
         while (!st.empty())
         {
             if (st.top() != q.front())
             {
-                flag = true;
+                flag = false;
                 break;
             }
             st.pop();
@@ -44,9 +44,9 @@ int main()
         }
         if (flag)
         {
-            cout << "NO" << endl;
+            cout << "YES" << endl;
         }
-        else cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
 
     return 0;
