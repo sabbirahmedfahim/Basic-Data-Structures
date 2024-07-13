@@ -1,6 +1,6 @@
 # What is Complexity?
 
-It is a process who's through we can judge various programs and choose the best one. Means, which programme needs less time and give highest output. 
+Complexity is a process through which we can compare various programs and choose the best one. It means identifying which program needs less time and delivers the highest output.
 
 **Time Complexity** : The amount of time taken by an *algorithm* to run, relative to the input size.
 
@@ -10,7 +10,7 @@ Types of complexity:
 
 ### Anyway, what is Order Of N? who's order? what order?
 
-It is called Asymtotic Notation, we calculate complexity using it. 
+It is called Asymtotic Notation, and we calculate complexity using it. 
 
 ## There are three kinds of notations
 

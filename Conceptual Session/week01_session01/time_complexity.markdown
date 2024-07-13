@@ -1,6 +1,6 @@
 # What is the Constant Time Complexity?
 
-In short, number of operation.
+In short, the number of operation.
 
 
     int a, b;
