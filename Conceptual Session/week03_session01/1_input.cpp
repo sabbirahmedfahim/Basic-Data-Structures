@@ -40,7 +40,7 @@ void insert_at_head(Node * &head, int data)
     {
         head = newNode;
         return;
-    }
+    } 
     newNode->next = head;
     head->prev = newNode;
     head = newNode;

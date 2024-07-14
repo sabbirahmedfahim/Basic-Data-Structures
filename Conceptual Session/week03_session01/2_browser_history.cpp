@@ -20,8 +20,8 @@ public:
 
     BrowserHistory(string homepage) {
         head->data = homepage;
-    }
-    
+    } 
+     
     void visit(string url) {
         Node* newNode = new Node(url);
         head->next = newNode;
