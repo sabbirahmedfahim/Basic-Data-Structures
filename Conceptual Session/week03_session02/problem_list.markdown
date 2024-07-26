@@ -1,0 +1,5 @@
+1. [Insert-greatest-common-divisors-in-linked-list [Medium]](https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description/)
+2. [Intersection-of-two-linked-lists [Easy]](https://leetcode.com/problems/intersection-of-two-linked-lists/description/)
+3. [Convert-binary-number-in-a-linked-list-to-integer [Easy]](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/description/)
+4. [Merge-in-between-linked-lists [Medium]](https://leetcode.com/problems/merge-in-between-linked-lists/description/)
+5. [Swap-nodes-in-pairs [Medium]](https://leetcode.com/problems/swap-nodes-in-pairs/description/)
