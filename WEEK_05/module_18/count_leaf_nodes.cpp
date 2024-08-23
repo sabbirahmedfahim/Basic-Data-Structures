@@ -85,7 +85,7 @@ int count_leafNodes(Node *root)
 {
     if (root == NULL)
         return 0;
-    if (root->left == NULL && root->right == NULL)
+    if (!root->left && !root->right)
         return 1;
     else
     {

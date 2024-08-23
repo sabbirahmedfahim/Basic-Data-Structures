@@ -28,7 +28,7 @@ Node * input_tree()
     while (!q.empty())
     {
         // 1. ber kore ano
-        Node *p = q.front(); // p for parent
+        Node *parent = q.front(); 
         q.pop();
 
         // 2. jabotiyo ja kaj ache
@@ -44,16 +44,16 @@ Node * input_tree()
             rightChild = NULL;
         else
             rightChild = new Node(r);
-        p->left = leftChild;
-        p->right = rightChild;
+        parent->left = leftChild;
+        parent->right = rightChild;
 
         // 3. children gulu ke push koro
-        if (p->left)
-            q.push(p->left);
-        if (p->right)
-            q.push(p->right);
+        if (parent->left)
+            q.push(parent->left);
+        if (parent->right)
+            q.push(parent->right);
     }
-    return root;
+    return root; // note the line, it's holds the entire data
 }
 void level_order(Node *root)
 {
