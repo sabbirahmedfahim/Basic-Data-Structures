@@ -34,18 +34,18 @@ Node * input_tree()
         // 2. jabotiyo ja kaj ache
         int l, r;
         cin >> l >> r;
-        Node *MyLeft;
-        Node *MyRight;
+        Node *leftChild;
+        Node *rightChild;
         if (l == -1)
-            MyLeft = NULL;
+            leftChild = NULL;
         else
-            MyLeft = new Node(l);
+            leftChild = new Node(l);
         if (r == -1)
-            MyRight = NULL;
+            rightChild = NULL;
         else
-            MyRight = new Node(r);
-        p->left = MyLeft;
-        p->right = MyRight;
+            rightChild = new Node(r);
+        p->left = leftChild;
+        p->right = rightChild;
 
         // 3. children gulu ke push koro
         if (p->left)
