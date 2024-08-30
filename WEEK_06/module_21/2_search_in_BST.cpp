@@ -86,7 +86,7 @@ int main()
     int x;
     cin >> x;
     if(insertNode(root, x)) cout << "found";
-    else cout << "not found";
+    else cout << "not found!";
 
     return 0;
 }
