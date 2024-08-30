@@ -48,8 +48,8 @@ Node * convertArrayToBST(int arr[], int n, int l, int r)
     Node * rightRoot = convertArrayToBST(arr, n, mid+1, r);
     root->left = leftRoot;
     root->right = rightRoot;
-    return root;
-}
+    return root;  
+}  
 int main()
 {
     int n; 
