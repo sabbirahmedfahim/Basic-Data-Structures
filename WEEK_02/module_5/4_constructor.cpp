@@ -9,7 +9,6 @@ public:
     Node(int val)
     {
         this->val = val;
-        // this->next = next; //we assumed that next cell will be NULL
         this->next = NULL;
     }
 };

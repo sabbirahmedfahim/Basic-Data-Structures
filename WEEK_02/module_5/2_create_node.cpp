@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> //goto create_node2.cpp
+#include <bits/stdc++.h> 
 using namespace std;
 // at first recap Pointer's concept
 int main()
