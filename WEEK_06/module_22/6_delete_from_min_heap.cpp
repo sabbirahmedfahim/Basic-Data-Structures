@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-void insert_heap(vector<int> &v, int x) // O(logN)
+void insert_in_min_heap(vector<int> &v, int x) // O(logN)
 {
     v.push_back(x);
     int cur_index = v.size() - 1;
@@ -14,50 +14,52 @@ void insert_heap(vector<int> &v, int x) // O(logN)
         cur_index = parent_index;
     }
 }
-void delete_heap(vector<int> &v) // O(logN)
+void delete_from_min_heap(vector<int> &v) // O(logN)
 {
-    v[0] = v.back();
+    v[0] = v.back(); // v.back() value itself remains same at the last index because: IMAGINE
     v.pop_back();   
-    int cur_index = 0;
+    int cur_index = 0; // parent index
     while (1)
     {
-        int left_index = (cur_index*2)+1;
-        int right_index = (cur_index*2)+2;
-        if(left_index <= v.back() && right_index <= v.back())
+        int leftChild_idx = (cur_index*2)+1; //  i->leftChild  --> (i*2)+1
+        int rightChild_idx = (cur_index*2)+2; // i->rightChild --> (i*2)+2
+
+        // duitai ache
+        if(leftChild_idx <= v.back() && rightChild_idx <= v.back()) 
         {
-            // duitai ache
-            if(v[left_index] <= v[right_index] && v[left_index < v[cur_index]])
+            if (v[leftChild_idx] <= v[rightChild_idx] && v[leftChild_idx] < v[cur_index])
             {
-                swap(v[left_index], v[cur_index]);
-                cur_index = left_index;
+                swap(v[leftChild_idx], v[cur_index]);
+                cur_index = leftChild_idx;
             }    
-            else if(v[right_index] <= v[left_index] && v[right_index] < v[cur_index])
+            else if(v[rightChild_idx]<=v[leftChild_idx] && v[rightChild_idx] < v[cur_index])
             {
-                swap(v[right_index], v[cur_index]);
-                cur_index = right_index;
+                swap(v[rightChild_idx], v[cur_index]);
+                cur_index = rightChild_idx;
             }
             else break;
         }
-        else if(left_index <= v.back())
+        // left ache
+        else if(leftChild_idx <= v.back()) 
         {
-            // left ache
-            if(v[left_index] < v[cur_index])
+            if(v[leftChild_idx] < v[cur_index])
             {
-                swap(v[left_index], v[cur_index]);
-                cur_index = left_index;
+                swap(v[leftChild_idx], v[cur_index]);
+                cur_index = leftChild_idx;
             }
             else break;
         }
-        else if(right_index <= v.back())
+        // right ache
+        else if(rightChild_idx <= v.back()) 
         {
-            // right ache
-            if(v[right_index] < v[cur_index])
+            if(v[rightChild_idx] < v[cur_index])
             {
-                swap(v[right_index], v[cur_index]);
-                cur_index = right_index;
+                swap(v[rightChild_idx], v[cur_index]);
+                cur_index = rightChild_idx;
             }
             else break;
         }
+        // konotai nai
         else break;
     }
     
@@ -74,9 +76,9 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int data; cin >> data;
-        insert_heap(v, data);
+        insert_in_min_heap(v, data);
     }
-    delete_heap(v);
+    delete_from_min_heap(v);
     print_heap(v);
 
     return 0;
