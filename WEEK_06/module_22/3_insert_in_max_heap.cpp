@@ -22,7 +22,7 @@ int main()
             cur_index = parent_index;
         }
     }
-// if you can draw input:output, you're done
+// you MUST draw input/output AKA insertion/print
     for (int data : v)
         cout << data << " ";
 
