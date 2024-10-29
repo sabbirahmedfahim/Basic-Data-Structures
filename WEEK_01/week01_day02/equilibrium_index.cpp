@@ -16,14 +16,15 @@ int main()
     {
         prefixSum[i] = prefixSum[i - 1] + v[i];
     }
+
     vector<long long int> suffixSum(n);
-    int pref_index = 0;
-    suffixSum[pref_index] = v[n - 1];
-    for (int i = n - 2; i >= 0; i--)
+    suffixSum[0] = v[n-1];
+    for (int i = 1, j = n-2; i < n; i++, j--)
     {
-        pref_index++;
-        suffixSum[pref_index] = suffixSum[pref_index - 1] + v[i];
+        suffixSum[i] = suffixSum[i-1] + v[j];
     }
+    // reverse(suffixSum.begin(), suffixSum.end());
+    
     for (int i = 0; i < n; i++)
     {
         if (prefixSum[i - 1] == suffixSum[i - 1])
