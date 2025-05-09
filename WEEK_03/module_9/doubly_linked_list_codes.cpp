@@ -2,6 +2,7 @@
 #define nl '\n'
 #define ll long long int
 using namespace std;
+
 class Node
 {
 public:
@@ -14,8 +15,9 @@ public:
         this->prev = NULL;
         this->next = NULL;
     }
-};
-void insert_head(Node *&head, Node *&tail, int data)
+}; 
+
+void insert_at_head(Node *&head, Node *&tail, int data) // O(1)
 {
     if (head == NULL)
     {
@@ -29,7 +31,8 @@ void insert_head(Node *&head, Node *&tail, int data)
     head->prev = newNode;
     head = newNode;
 }
-void insert_tail(Node *&head, Node* &tail, int val)
+
+void insert_at_tail(Node *&head, Node* &tail, int val) // O(1)
 {
     Node *newNode = new Node(val);
     // Node * temp = tail;
@@ -43,7 +46,8 @@ void insert_tail(Node *&head, Node* &tail, int val)
     newNode->prev = tail;
     tail = newNode; // We took reference (&) just because for this line, imagine why
 }
-void delete_head(Node* &head, Node* &tail)
+
+void delete_head(Node* &head, Node* &tail) // O(1)
 {
     if(head->next == NULL)
     {
@@ -54,7 +58,8 @@ void delete_head(Node* &head, Node* &tail)
     head->prev = NULL;
     delete deleteNode;
 }
-void delete_tail(Node* &head, Node * &tail)
+
+void delete_tail(Node* &head, Node * &tail) // O(1)
 {
     if(tail->prev == NULL)
     {
@@ -65,7 +70,8 @@ void delete_tail(Node* &head, Node * &tail)
     tail->next = NULL;
     delete deleteNode;
 }
-void search_n_delete(Node * &head, Node * &tail, int data)
+
+void delete_by_value(Node * &head, Node * &tail, int data) // O(n)
 {
     if(head == NULL) return;
     else if(head->data == data) delete_head(head, tail);
@@ -91,7 +97,8 @@ void search_n_delete(Node * &head, Node * &tail, int data)
         }
     }
 }
-void delete_at_position(Node *head, int pos) // if there any option to track head, tail after deletion, do it
+
+void delete_at_position(Node *head, int pos) // O(pos)
 {
     Node *temp = head;
     for (int i = 1; i <= pos - 1; i++)
@@ -103,7 +110,8 @@ void delete_at_position(Node *head, int pos) // if there any option to track hea
     temp->next->prev = temp;
     delete deleteNode;
 }
-void print(Node * head)
+
+void print_list(Node * head) // O(n)
 {
     while (head != NULL)
     {
@@ -112,7 +120,8 @@ void print(Node * head)
     }
     cout << nl;
 }
-int linked_list_size(Node *head)
+
+int linked_list_size(Node *head) // O(n)
 {
     int count = 0;
     while (head != NULL)
@@ -122,7 +131,8 @@ int linked_list_size(Node *head)
     }
     return count;
 }
-int main()
+
+int main() 
 {
     ios_base::sync_with_stdio(false); cin.tie(NULL);
 
@@ -134,12 +144,12 @@ int main()
         if(cmd == "insert")
         {
             ll data; cin >> data;
-            insert_head(head, tail, data);
+            insert_at_head(head, tail, data);
         }
         else if(cmd == "delete")
         {
             ll data; cin >> data;
-            search_n_delete(head, tail, data);
+            delete_by_value(head, tail, data);
         }
         else if(cmd == "deleteFirst")
         {
@@ -150,7 +160,7 @@ int main()
             if(tail != NULL) delete_tail(head, tail);
         }
     }
-    print(head);
+    print_list(head);
 
     return 0;
 }
