@@ -67,3 +67,11 @@ int main()
 
     return 0;
 }
+/*
+Input:
+10 30 20 50 60 40 30 -1
+
+Expected Output:
+10 20 30 30 40 50 60
+
+*/
